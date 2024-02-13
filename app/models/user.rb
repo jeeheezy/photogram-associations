@@ -96,7 +96,7 @@ class User < ApplicationRecord
     foreign_key: "sender_id"
   )
 
-  has_many(:accepted_received_follow_requests, -> { where status: "accepted "},
+  has_many(:accepted_received_follow_requests, -> { where status: "accepted" },
     class_name: "FollowRequest",
     foreign_key: "recipient_id"
   )
@@ -118,5 +118,6 @@ class User < ApplicationRecord
 
   has_many(:discover,
     through: :leaders,
-    source: :like_photos
+    source: :liked_photos
   )
+end
